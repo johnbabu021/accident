@@ -64,7 +64,7 @@ router.get('/signup', (req, res) => {
 
 
 
-router.get('/hospital', (req, res) => {
+router.get('/hospital', verifyLogin, (req, res) => {
   res.render('user/hospital')
 })
 
@@ -72,13 +72,13 @@ router.get('/hospital', (req, res) => {
 
 
 
-router.get('/taxi', (req, res) => {
+router.get('/taxi', verifyLogin, (req, res) => {
   res.render('user/taxi')
 })
-router.get('/ambulance', (req, res) => {
+router.get('/ambulance', verifyLogin, (req, res) => {
   res.render('user/ambulance')
 })
-router.get('/doctor', (req, res) => {
+router.get('/doctor', verifyLogin, (req, res) => {
   res.render('user/doctor')
 })
 
@@ -86,7 +86,7 @@ router.get('/doctor', (req, res) => {
 
 
 
-router.post('/ambulance', (req, res) => {
+router.post('/ambulance', verifyLogin, (req, res) => {
 
   userHelper.ambulanceHelper(req.body).then((response) => {
 
@@ -99,7 +99,7 @@ router.post('/ambulance', (req, res) => {
 
 
 
-router.post('/hospital', (req, res) => {
+router.post('/hospital', verifyLogin, (req, res) => {
 
   userHelper.hospitalHelper(req.body).then((response) => {
 
@@ -110,7 +110,7 @@ router.post('/hospital', (req, res) => {
 
 
 
-router.post('/taxi', (req, res) => {
+router.post('/taxi', verifyLogin, (req, res) => {
 
   userHelper.taxiHelper(req.body).then((response) => {
 
@@ -120,7 +120,7 @@ router.post('/taxi', (req, res) => {
 })
 
 
-router.post('/doctor', (req, res) => {
+router.post('/doctor', verifyLogin, (req, res) => {
 
   userHelper.doctor(req.body).then((response) => {
 
@@ -131,7 +131,7 @@ router.post('/doctor', (req, res) => {
 
 
 
-router.get('/allHospitals', async (req, res) => {
+router.get('/allHospitals', verifyLogin, async (req, res) => {
 
   let hospital = await userHelper.findAllHospitals()
   res.render('user/viewHospital', { hospital })
@@ -140,7 +140,7 @@ router.get('/allHospitals', async (req, res) => {
 
 
 
-router.get('/allTaxi', async (req, res) => {
+router.get('/allTaxi', verifyLogin, async (req, res) => {
 
   let taxi = await userHelper.findAllTaxis()
   res.render('user/viewTaxi', { taxi })
@@ -148,7 +148,7 @@ router.get('/allTaxi', async (req, res) => {
 
 
 
-router.get('/allAmbulance', async (req, res) => {
+router.get('/allAmbulance', verifyLogin, async (req, res) => {
 
   let ambulance = await userHelper.findAllAmbulances()
   res.render('user/viewAmbulance', { ambulance })
@@ -156,7 +156,7 @@ router.get('/allAmbulance', async (req, res) => {
 
 
 
-router.get('/allDoctors', async (req, res) => {
+router.get('/allDoctors', verifyLogin, async (req, res) => {
 
   let doctor = await userHelper.findAllDoctors()
   res.render('user/viewDoctor', { doctor })
