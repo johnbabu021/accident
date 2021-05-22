@@ -1,27 +1,50 @@
 <section>
 
-
-    <div class="row ml-4">
-        {{#each ambulance}}
+    <div class="container">
 
 
-        <div class="col-lg-3 col-md-6" style="display: inline-block;">
+        <div class="row ml-4">
+            <div class="col-md-10">
 
 
-            <div class="card mt-5" style="width: 18rem;">
-                <img class="card-img-top" src="../images/3D2.svg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">CATEGORY:{{this.acategory}}</h5>
-                    <p class="card-text">PHONE:{{this.phone}}</p>
-                    <a href="/hospital" class="btn btn-success">Go somewhere</a>
-                </div>
+                <table class="table" id="ambulance">
+                    <thead>
+                        <tr>
+                            <th scope="col">john</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Handle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each ambulance}}
+
+
+                        <tr>
+                            <td>{{this.acategory}}</td>
+                            <td>{{this.alnumber}}</td>
+                            <td>{{this.sphone}}</td>
+                        </tr>
+
+                        {{/each}}
+
+
+                    </tbody>
+                </table>
+
+
             </div>
 
 
         </div>
-        {{/each}}
-
-
 
     </div>
 </section>
+
+
+<script>
+
+    $(document).ready(function () {
+        $('#ambulance').DataTable();
+    });
+
+</script>
