@@ -1,27 +1,45 @@
 <section>
 
-
-    <div class="row ml-4">
-        {{#each taxi}}
+    <div class="container">
 
 
-        <div class="col-lg-3 col-md-6" style="display: inline-block;">
+        <div class="row ml-4">
+            <div class="col-md-10">
 
 
-            <div class="card mt-5" style="width: 18rem;">
-                <img class="card-img-top" src="../images/3D2.svg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">NAME:{{this.fullname}}</h5>
-                    <p class="card-text">PHONE:{{this.phone}}</p>
-                    <a href="/hospital" class="btn btn-success">Get It</a>
-                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Handle</th>
+                            <th scope="col">Place</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each taxi}}
+
+
+                        <tr>
+                            <td>{{this.fullname}}</td>
+                            <td>{{this.phone}}</td>
+                            <td>{{this.tlnumber}}</td>
+                            <td>{{this.place}} </td>
+
+                        </tr>
+
+                        {{/each}}
+
+
+                    </tbody>
+                </table>
+
+
             </div>
 
 
         </div>
-        {{/each}}
-
-
 
     </div>
 </section>
