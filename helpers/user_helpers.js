@@ -92,7 +92,13 @@ module.exports = {
         return new Promise(async (resolve, reject) => {
 
             let taxi = await db.get().collection(collection.TAXI_COLLECTION).find().toArray();
+
+            console.log()
+
             resolve(taxi)
+
+
+
 
         })
 
