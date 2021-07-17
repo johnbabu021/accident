@@ -27,7 +27,6 @@ router.get('/login', (req, res) => {
 
 router.post('/login', (req, res) => {
   userHelper.doLogin(req.body).then((response) => {
-    console.log(req.body);
     if (response.status) {
       req.session.user = response.user;
       req.session.loggedIn = true;
@@ -53,7 +52,7 @@ router.post('/signup', (req, res) => {
 
 router.post('/dashboard', verifyLogin, (req, res) => {
 
-  res.render('user/cards')
+  res.render('/user/cards')
 })
 
 
@@ -145,7 +144,7 @@ router.get('/allTaxi', async (req, res) => {
   let taxi = await userHelper.findAllTaxis()
   console.log(taxi + 'johnjohnjohn')
 
-    res.render('user/viewTaxi', { taxi })
+  res.render('user/viewTaxi', { taxi })
 
 })
 

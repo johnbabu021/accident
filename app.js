@@ -29,7 +29,7 @@ db.connect((err) => {
   else
     console.log('database connected to port 27017');
 })
-app.use(session({ secret: 'key', cookie: { maxAge: 60000 } }))
+app.use(session({ secret: 'key', cookie: { maxAge: 60000000 } }))
 
 app.use('/', userRouter);
 app.use('/admin', adminRouter);

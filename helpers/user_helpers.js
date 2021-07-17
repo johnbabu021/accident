@@ -47,6 +47,15 @@ module.exports = {
 
         })
     },
+    isActive: (ActiveData) => {
+
+        return new Promise((resolve, reject) => {
+            console.log(ActiveData, "activedata")
+            db.get().collection(collection.USER_COLLECTION).insertOne(ActiveData).then((response) => {
+                resolve(response)
+            })
+        })
+    },
     ambulanceHelper: (ambulanceDetails) => {
         return new Promise((resolve, reject) => {
 
