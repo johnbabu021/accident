@@ -1,10 +1,12 @@
 const MongoClient = require('mongodb').MongoClient
+require('dotenv').config()
+// console.log(process.env) 
 const state = {
     db: null
 }
 
 module.exports.connect = function (done) {
-    const url = "mongodb://localhost:27017"
+    const url = process.env.MNGD
     const dbname = 'accident'
 
     MongoClient.connect(url, (err, data) => {//err and done(err) have no common features
